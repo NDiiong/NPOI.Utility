@@ -1,21 +1,5 @@
 
 *.pdb
-NPOI.Utility/bin/Debug/netstandard2.0/NPOI.Utility.deps.json
-NPOI.Utility/bin/Debug/netstandard2.0/NPOI.Utility.dll
-NPOI.Utility/.vs/NPOI.Utility/v16/.suo
-NPOI.Utility/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.AssemblyInfo.cs
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.AssemblyInfoInputs.cache
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.assets.cache
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.csproj.CoreCompileInputs.cache
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.csproj.FileListAbsolute.txt
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.csprojAssemblyReference.cache
-NPOI.Utility/obj/Debug/netstandard2.0/NPOI.Utility.dll
-NPOI.Utility/obj/NPOI.Utility.csproj.nuget.dgspec.json
-NPOI.Utility/obj/NPOI.Utility.csproj.nuget.g.props
-NPOI.Utility/obj/NPOI.Utility.csproj.nuget.g.targets
-NPOI.Utility/obj/project.assets.json
-NPOI.Utility/obj/project.nuget.cache
 src/NPOI.Utility/obj/project.nuget.cache
 src/NPOI.Utility/obj/project.assets.json
 src/NPOI.Utility/obj/NPOI.Utility.csproj.nuget.g.targets
