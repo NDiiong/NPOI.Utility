@@ -3,24 +3,24 @@
 Sample:
 ```c#
 public class Hotel
-    {
-        [Column(Title = "HotelName")]
-        public string Name { get; set; }
+{
+    [Column(Title = "HotelName")]
+    public string Name { get; set; }
 
-        [Column(Title = "HoteAddress")]
-        public string Address { get; set; }
-    }
+    [Column(Title = "HoteAddress")]
+    public string Address { get; set; }
+}
 
-    internal class Program
+internal class Program
+{
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
+        var hotels = ExcelFile.Load<Hotel>("D:\\Hotel_Info.xlsx", scheme =>
         {
-            var hotels = ExcelFile.Load<Hotel>("D:\\Hotel_Info.xlsx", scheme =>
-            {
-                scheme.SheetIndex = 0;
-                scheme.StartRow = 1;
-            });
-            Console.WriteLine("Hello World!");
-        }
+            scheme.SheetIndex = 0;
+            scheme.StartRow = 1;
+        });
+        Console.WriteLine("Hello World!");
     }
+}
 ```
