@@ -1,7 +1,7 @@
 # NPOI.Utility
 
->Sample:
-```csharp
+Sample:
+```c#
 public class Hotel
     {
         [Column(Title = "HotelName")]
