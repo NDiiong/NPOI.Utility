@@ -27,7 +27,7 @@ namespace NPOI.Utility.Excel
     {
         private readonly object _balanceLock = new object();
 
-        public ExcelScheme() => InitDefaultColumns();
+        public ExcelScheme() => PreLoadColumns();
 
         public int SheetIndex { get; set; } = -1;
 
@@ -37,7 +37,7 @@ namespace NPOI.Utility.Excel
 
         internal IEnumerable<Column> Columns => _columnsCache[typeof(T).FullName];
 
-        private void InitDefaultColumns()
+        private void PreLoadColumns()
         {
             lock (_balanceLock)
             {
