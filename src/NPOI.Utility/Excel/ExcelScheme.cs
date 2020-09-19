@@ -29,8 +29,6 @@ namespace NPOI.Utility.Excel
 
         public ExcelScheme() => InitDefaultColumns();
 
-        public string Extension { get; set; }
-
         public int SheetIndex { get; set; } = -1;
 
         public string SheetName { get; set; }
@@ -46,9 +44,9 @@ namespace NPOI.Utility.Excel
                 var columns = new List<Column>();
                 foreach (var property in typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty))
                 {
-                    var attributeSheetColumn = property.GetCustomAttributes(typeof(SheetColumnAttribute), inherit: true).FirstOrDefault();
+                    var attributeSheetColumn = property.GetCustomAttributes(typeof(ColumnAttribute), inherit: true).FirstOrDefault();
 
-                    if (attributeSheetColumn is SheetColumnAttribute _sheetColumnTitleAttribute && !_sheetColumnTitleAttribute.IsIgnored)
+                    if (attributeSheetColumn is ColumnAttribute _sheetColumnTitleAttribute && !_sheetColumnTitleAttribute.IsIgnored)
                     {
                         columns.Add(new Column
                         {

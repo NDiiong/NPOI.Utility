@@ -1,11 +1,26 @@
 ﻿using System;
+using NPOI.Utility.Excel;
 
 namespace NPOI.Utility.Test
 {
-    class Program
+    public class Hotel
     {
-        static void Main(string[] args)
+        [Column(Title = "HotelName")]
+        public string Name { get; set; }
+
+        [Column(Title = "HoteAddress")]
+        public string Address { get; set; }
+    }
+
+    internal class Program
+    {
+        private static void Main(string[] args)
         {
+            var hotels = ExcelFile.Load<Hotel>("D:\\Hotel_Info.xlsx", scheme =>
+            {
+                scheme.SheetIndex = 0;
+                scheme.StartRow = 1;
+            });
             Console.WriteLine("Hello World!");
         }
     }

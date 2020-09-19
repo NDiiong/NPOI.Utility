@@ -121,7 +121,7 @@ namespace NPOI.Utility.Excel
 
             var cellValue = CellValue(cell, format, CultureInfo.InvariantCulture);
 
-            return TypeHelper.ConvertTypeCode(propertyType, format, cellValue, CultureInfo.InvariantCulture);
+            return TypeHelper.ConvertTypeCode(propertyType, cellValue, format, CultureInfo.InvariantCulture);
         }
 
         private static string CellValue(ICell cell, string format, IFormatProvider provider)

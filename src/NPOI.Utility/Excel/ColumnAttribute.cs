@@ -3,7 +3,7 @@
 namespace NPOI.Utility.Excel
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public sealed class SheetColumnAttribute : Attribute
+    public sealed class ColumnAttribute : Attribute
     {
         public bool AutoIndex { get; set; }
 

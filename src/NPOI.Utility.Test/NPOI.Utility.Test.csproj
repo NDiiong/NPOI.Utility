@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NPOI.Utility\NPOI.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
