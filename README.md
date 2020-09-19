@@ -1,5 +1,6 @@
 # NPOI.Utility
 
+>Sample:
 ```csharp
 public class Hotel
     {
