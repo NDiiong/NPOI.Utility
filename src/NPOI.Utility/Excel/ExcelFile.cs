@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.Utility.Helpers;
@@ -118,12 +119,12 @@ namespace NPOI.Utility.Excel
 
             if (cell == null) return null;
 
-            var cellValue = CellValue(cell, format);
+            var cellValue = CellValue(cell, format, CultureInfo.InvariantCulture);
 
-            return TypeHelper.ConvertTypeCode(propertyType, cellValue, format);
+            return TypeHelper.ConvertTypeCode(propertyType, format, cellValue, CultureInfo.InvariantCulture);
         }
 
-        private static string CellValue(ICell cell, string format, IFormatProvider provider = default)
+        private static string CellValue(ICell cell, string format, IFormatProvider provider)
         {
             switch (cell.CellType)
             {
