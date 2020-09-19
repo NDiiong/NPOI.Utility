@@ -16,7 +16,7 @@ namespace NPOI.Utility.Test
     {
         private static void Main(string[] args)
         {
-            var hotels = ExcelFile.Load<Hotel>("D:\\Hotel_Info.xlsx", scheme =>
+            var hotels = ExcelFile.Read<Hotel>("D:\\Hotel_Info.xlsx", scheme =>
             {
                 scheme.SheetIndex = 0;
                 scheme.StartRow = 1;

@@ -11,7 +11,7 @@ namespace NPOI.Utility.Excel
 {
     public static class ExcelFile
     {
-        public static IEnumerable<T> Load<T>(byte[] contentFile, Action<ExcelScheme<T>> schemeBuilder) where T : class, new()
+        public static IEnumerable<T> Read<T>(byte[] contentFile, Action<ExcelScheme<T>> schemeBuilder) where T : class, new()
         {
             if (contentFile == null)
                 throw new ArgumentNullException(nameof(contentFile));
@@ -22,7 +22,7 @@ namespace NPOI.Utility.Excel
             }
         }
 
-        public static IEnumerable<T> Load<T>(string excelPath, Action<ExcelScheme<T>> schemeBuilder) where T : class, new()
+        public static IEnumerable<T> Read<T>(string excelPath, Action<ExcelScheme<T>> schemeBuilder) where T : class, new()
         {
             if (string.IsNullOrWhiteSpace(excelPath))
                 throw new ArgumentNullException(nameof(excelPath));
