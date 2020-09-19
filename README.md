@@ -1,6 +1,6 @@
 # NPOI.Utility
 
->```
+```csharp
 public class Hotel
     {
         [Column(Title = "HotelName")]
