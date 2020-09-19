@@ -39,27 +39,31 @@ namespace NPOI.Utility.Excel
 
         private void InitDefaultColumns()
         {
-            if (!_columnsCache.ContainsKey(typeof(T).FullName))
+            lock (_balanceLock)
             {
-                var columns = new List<Column>();
-                foreach (var property in typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty))
+                if (!_columnsCache.ContainsKey(typeof(T).FullName))
                 {
-                    var attributeSheetColumn = property.GetCustomAttributes(typeof(ColumnAttribute), inherit: true).FirstOrDefault();
-
-                    if (attributeSheetColumn is ColumnAttribute _sheetColumnTitleAttribute && !_sheetColumnTitleAttribute.IsIgnored)
+                    var columns = new List<Column>();
+                    foreach (var property in typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty))
                     {
-                        columns.Add(new Column
+                        var attributeSheetColumn = property.GetCustomAttributes(typeof(ColumnAttribute), inherit: true).FirstOrDefault();
+
+                        if (attributeSheetColumn is ColumnAttribute _sheetColumn && !_sheetColumn.IsIgnored)
                         {
-                            PropertyInfo = property,
-                            AutoIndex = _sheetColumnTitleAttribute.AutoIndex,
-                            Index = _sheetColumnTitleAttribute.Index,
-                            Title = _sheetColumnTitleAttribute.Title,
-                            Format = _sheetColumnTitleAttribute.Formatter,
-                        });
+                            columns.Add(new Column
+                            {
+                                PropertyInfo = property,
+                                AutoIndex = _sheetColumn.AutoIndex,
+                                Index = _sheetColumn.Index,
+                                Title = _sheetColumn.Title,
+                                Format = _sheetColumn.Formatter,
+                            });
+                        }
                     }
+
+                    if (columns.Count > 0)
+                        _columnsCache.Add(typeof(T).FullName, columns);
                 }
-                lock (_balanceLock)
-                    _columnsCache.Add(typeof(T).FullName, columns);
             }
         }
     }
